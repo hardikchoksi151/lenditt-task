@@ -71,6 +71,8 @@ exports.getContactByID = async (req, res) => {
   page = page ?? 1;
   pageSize = pageSize ?? 2;
 
+  if (page <= 0 || pageSize <= 0) return res.status(400).json({status: false, message: "Page or Page Size cannot be less than 1"});
+
   if (!user_id) return res.status(400).json({status: false, message: "Please provide a user id"});
 
   const options = {

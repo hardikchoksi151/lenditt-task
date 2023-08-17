@@ -28,6 +28,7 @@ HMAC_SECRET="lenditt"
 ## Database Setup
 
 1. Create mysql database named `task`.
+
 ```sql
 CREATE DATABASE task;
 ```
@@ -36,6 +37,7 @@ CREATE DATABASE task;
 ## Installing Dependencies
 
 Now, Run the following command to install the necessary packages:
+
 ```bash
 npm install
 ```
@@ -43,6 +45,7 @@ npm install
 ## Running Migrations
 
 Now, Run the following command to run the migration scripts:
+
 ```bash
 npm run migrate
 ```
@@ -53,12 +56,15 @@ The migration scripts creates:
 - `Contacts` table.
 
 You can also undo all migrations using following command (Just an option, no need to do this):
+
 ```bash
 npm run migrate:undo
 ```
 
 ## Running the API
+
 To start the API, use:
+
 ```bash
 npm start
 ```
@@ -75,6 +81,7 @@ npm start
 Example 1: 
 
 Request body:
+
 ```json
  {
     "userId": 1,
@@ -83,10 +90,33 @@ Request body:
       { "name": "sahil", "number": "2234567777" },
       { "name": "miten", "number": "1212123456" }
     ]
-  },
+  }
 ```
 
 Response:
+
+```json
+{
+    "success": true,
+    "message": "Data saved successfully"
+}
+
+Example 2: 
+
+Request body:
+
+```json
+ {
+    "userId": 2,
+    "Contacts": [
+      { "name": "darshan", "number": "6657991246" },
+      { "name": "sahil", "number": "2234567777" }
+    ]
+ }
+```
+
+Response:
+
 ```json
 {
     "success": true,
@@ -96,19 +126,21 @@ Response:
 
 Here If you provide duplicate number again in the same userId's contacts, it will respond with `500 Internal Server Error`.
 
-Example 2:
+Example 3:
 
 Request body:
+
 ```json
  {
     "userId": 1,
     "Contacts": [
       { "name": "rahil", "number": "1234567890" }
     ]
-  },
+ }
 ```
 
 Response:
+
 ```json
 {
     "success": false,
@@ -121,13 +153,14 @@ But with same userId, but new number will add that number in that user's contact
 Example 3:
 
 Request body:
+
 ```json
  {
     "userId": 1,
     "Contacts": [
       { "name": "hardik", "number": "1111111111" }
     ]
-  },
+  }
 ```
 
 Response:
@@ -143,12 +176,15 @@ It will respond with `400 Bad Request` if userId or Contacts array is not provid
 Example 4:
 
 Request body:
+
 ```json
 {
     "userId": 1
-},
+}
+```
 
 Response:
+
 ```json
 {
     "success": false,
@@ -174,6 +210,7 @@ Example 1:
 GET /api/common-users?searchNumber=2234567777
 ```
 Response:
+
 ```json
 {
     "Name": "sahil",
@@ -188,6 +225,7 @@ Example 2:
 If the `searchNumber` is not `10` characters long or searchNumber is given at all, the api will respond with `400 Bad Request`.
 
 Response:
+
 ```json
 {
     "success": false,
@@ -215,10 +253,12 @@ The default page size is `2` records per page and default current page is `1st` 
 Example 1:
 
 Request:
+
 ```http
 GET /api/get-contacts?userId=1&page=1&pageSize=2
 ```
 Response:
+
 ```json
 {
     "totalCount": 4,
@@ -240,11 +280,13 @@ If `searchText` is provided, then it will match `searchText` with `name` for pro
 Example 2:
 
 Request:
+
 ```http
 GET /api/get-contacts?searchText=rah&userId=1&page=1&pageSize=2
 ```
 
 Response: 
+
 ```json
 {
     "totalCount": 1,
@@ -262,11 +304,13 @@ Response:
 Example 3:
 
 Request:
+
 ```http
 GET /api/get-contacts?searchText=rah&page=1&pageSize=2
 ```
 
 Response: 
+
 ```json
 {
     "status": false,
