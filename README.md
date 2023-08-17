@@ -75,7 +75,7 @@ npm start
 #### API - 1:  Sync Contacts
 
 ```http
-  POST /api/sync-contacts
+POST /api/sync-contacts
 ```
 
 Example 1: 
@@ -83,14 +83,14 @@ Example 1:
 Request body:
 
 ```json
- {
-    "userId": 1,
-    "Contacts": [
-      { "name": "rahil", "number": "1234567890" },
-      { "name": "sahil", "number": "2234567777" },
-      { "name": "miten", "number": "1212123456" }
-    ]
-  }
+{
+  "userId": 1,
+  "Contacts": [
+    { "name": "rahil", "number": "1234567890" },
+    { "name": "sahil", "number": "2234567777" },
+    { "name": "miten", "number": "1212123456" }
+  ]
+}
 ```
 
 Response:
@@ -100,18 +100,19 @@ Response:
     "success": true,
     "message": "Data saved successfully"
 }
+```
 
 Example 2: 
 
 Request body:
 
 ```json
- {
-    "userId": 2,
-    "Contacts": [
-      { "name": "darshan", "number": "6657991246" },
-      { "name": "sahil", "number": "2234567777" }
-    ]
+{
+  "userId": 2,
+  "Contacts": [
+    { "name": "darshan", "number": "6657991246" },
+    { "name": "sahil", "number": "2234567777" }
+  ]
  }
 ```
 
@@ -119,8 +120,8 @@ Response:
 
 ```json
 {
-    "success": true,
-    "message": "Data saved successfully"
+  "success": true,
+  "message": "Data saved successfully"
 }
 ```
 
@@ -131,20 +132,20 @@ Example 3:
 Request body:
 
 ```json
- {
-    "userId": 1,
-    "Contacts": [
-      { "name": "rahil", "number": "1234567890" }
-    ]
- }
+{
+  "userId": 1,
+  "Contacts": [
+    { "name": "rahil", "number": "1234567890" }
+  ]
+}
 ```
 
 Response:
 
 ```json
 {
-    "success": false,
-    "message": "Validation error"
+  "success": false,
+  "message": "Validation error"
 }
 ```
 
@@ -155,19 +156,20 @@ Example 3:
 Request body:
 
 ```json
- {
-    "userId": 1,
-    "Contacts": [
-      { "name": "hardik", "number": "1111111111" }
-    ]
-  }
+{
+  "userId": 1,
+  "Contacts": [
+    { "name": "hardik", "number": "1111111111" }
+  ]
+}
 ```
 
 Response:
+
 ```json
 {
-    "success": true,
-    "message": "Data saved successfully"
+  "success": true,
+  "message": "Data saved successfully"
 }
 ```
 
@@ -179,7 +181,7 @@ Request body:
 
 ```json
 {
-    "userId": 1
+  "userId": 1
 }
 ```
 
@@ -187,15 +189,15 @@ Response:
 
 ```json
 {
-    "success": false,
-    "message": "Invalid Input"
+  "success": false,
+  "message": "Invalid Input"
 }
 ```
 
 #### API 2: Find common user for a particular number
 
 ```http
-  GET /api/common-users?searchNumber=${phoneNumber}
+GET /api/common-users?searchNumber=${phoneNumber}
 ```
 
 | Parameter | Type     | Description                       |
@@ -213,11 +215,11 @@ Response:
 
 ```json
 {
-    "Name": "sahil",
-    "commonUsers": [
-        1,
-        2
-    ]
+  "Name": "sahil",
+  "commonUsers": [
+      1,
+      2
+  ]
 }
 ```
 Example 2:
@@ -228,8 +230,8 @@ Response:
 
 ```json
 {
-    "success": false,
-    "message": "Please provide a valid phoneNumber"
+  "success": false,
+  "message": "Please provide a valid phoneNumber"
 }
 ```
 
@@ -261,17 +263,17 @@ Response:
 
 ```json
 {
-    "totalCount": 4,
-    "rows": [
-        {
-            "number": "1212123456",
-            "name": "miten"
-        },
-        {
-            "number": "1111111111",
-            "name": "hardik"
-        }
-    ]
+  "totalCount": 4,
+  "rows": [
+      {
+          "number": "1212123456",
+          "name": "miten"
+      },
+      {
+          "number": "1111111111",
+          "name": "hardik"
+      }
+  ]
 }
 ```
 
@@ -289,13 +291,13 @@ Response:
 
 ```json
 {
-    "totalCount": 1,
-    "rows": [
-        {
-            "number": "1234567890",
-            "name": "rahil"
-        }
-    ]
+  "totalCount": 1,
+  "rows": [
+      {
+          "number": "1234567890",
+          "name": "rahil"
+      }
+  ]
 }
 ```
 
@@ -313,7 +315,7 @@ Response:
 
 ```json
 {
-    "status": false,
-    "message": "Please provide a user id"
+  "status": false,
+  "message": "Please provide a user id"
 }
 ```
